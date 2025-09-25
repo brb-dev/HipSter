@@ -37,6 +37,24 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+
+    flavorDimensions += "env"
+
+    productFlavors {
+ 
+        create("dev") {
+            dimension = "env"
+            applicationIdSuffix = ".dev"
+            resValue("string", "app_name", "HipSter Meet Dev")
+            manifestPlaceholders["appAuthRedirectScheme"] = "com.brb.hipstermeet"
+        }
+ 
+        create("prod") {
+            dimension = "env"
+            resValue("string", "app_name", "HipSter Meet")
+            manifestPlaceholders["appAuthRedirectScheme"] = "com.brb.hipstermeet"
+        }
+    }
 }
 
 flutter {
