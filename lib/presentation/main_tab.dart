@@ -154,22 +154,22 @@ List<RouteItem> _getTabs(BuildContext context) {
 
 RouteItem callTabRouteItem = RouteItem(
   route: const CallRoute(),
-  icon: Icon(Icons.home),
-  selectedIcon: Icon(Icons.home),
+  icon: Icon(Icons.video_call),
+  selectedIcon: Icon(Icons.video_call),
   label: 'Call',
 );
 
 RouteItem userTabRouteItem = RouteItem(
   route: const UserRoute(),
-  icon: Icon(Icons.money),
-  selectedIcon: Icon(Icons.money),
+  icon: Icon(Icons.person),
+  selectedIcon: Icon(Icons.person),
   label: 'User',
 );
 
 RouteItem profileTabRouteItem = RouteItem(
   route: const ProfileRoute(),
-  icon: Icon(Icons.money_off_csred),
-  selectedIcon: Icon(Icons.money_off_csred),
+  icon: Icon(Icons.settings),
+  selectedIcon: Icon(Icons.settings),
   label: 'Profile',
 );
 

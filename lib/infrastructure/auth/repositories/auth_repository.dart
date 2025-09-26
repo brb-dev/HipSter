@@ -66,6 +66,7 @@ class AuthRepository implements IAuthRepository {
   Future<Either<ApiFailure, Unit>> logout() async {
     try {
       await remoteDataSource.logout();
+      await tokenStorage.clear();
 
       return Right(unit);
     } catch (e) {

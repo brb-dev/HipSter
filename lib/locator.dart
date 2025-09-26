@@ -8,6 +8,8 @@ import 'package:hipstermeet/infrastructure/core/http/auth_interceptor.dart';
 import 'package:hipstermeet/infrastructure/core/http/http_service.dart';
 import 'package:hipstermeet/infrastructure/core/storage/secure_storage.dart';
 import 'package:hipstermeet/infrastructure/core/storage/token_storage.dart';
+import 'package:hipstermeet/infrastructure/user/datasources/user_remote_data_source.dart';
+import 'package:hipstermeet/infrastructure/user/repositories/user_repository.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router_observer.dart';
 
@@ -51,6 +53,20 @@ void setupLocator() {
     () => AuthBloc(
       authRepository: locator<AuthRepository>(),
       config: locator<Config>(),
+    ),
+  );
+
+  locator.registerLazySingleton(
+    () => UserRemoteDataSource(
+      dataSourceExceptionHandler: locator<DataSourceExceptionHandler>(),
+      config: locator<Config>(),
+      http: locator<HttpService>(),
+    ),
+  );
+  locator.registerLazySingleton(
+    () => UserRepository(
+      config: locator<Config>(),
+      remoteDataSource: locator<UserRemoteDataSource>(),
     ),
   );
 }

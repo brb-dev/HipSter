@@ -35,6 +35,11 @@ class AuthRemoteDatasource {
   }
 
   Future<void> logout() async {
-    return await dataSourceExceptionHandler.handle(() async {});
+    return await dataSourceExceptionHandler.handle(() async {
+      await httpService.request(
+        method: 'POST',
+        url: '${config.urlConstants}logout',
+      );
+    });
   }
 }
