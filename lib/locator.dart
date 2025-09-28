@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:hipstermeet/application/auth/auth_bloc.dart';
 import 'package:hipstermeet/config.dart';
 import 'package:hipstermeet/domain/core/error/exception_handler.dart';
+import 'package:hipstermeet/env/env.dart';
 import 'package:hipstermeet/infrastructure/auth/datasources/auth_remote_datasource.dart';
 import 'package:hipstermeet/infrastructure/auth/repositories/auth_repository.dart';
 import 'package:hipstermeet/infrastructure/core/http/auth_interceptor.dart';
@@ -12,10 +13,12 @@ import 'package:hipstermeet/infrastructure/user/datasources/user_remote_data_sou
 import 'package:hipstermeet/infrastructure/user/repositories/user_repository.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router_observer.dart';
+import 'package:hipstermeet/presentation/core/utils/agora/agora_util.dart';
 
 GetIt locator = GetIt.instance;
 void setupLocator() {
   locator.registerLazySingleton(() => Config());
+  locator.registerLazySingleton(() => Env());
   locator.registerLazySingleton(() => AppRouter());
   locator.registerLazySingleton(() => AppRouterObserver());
   locator.registerLazySingleton(() => DataSourceExceptionHandler());
@@ -23,6 +26,7 @@ void setupLocator() {
   locator.registerLazySingleton(
     () => TokenStorage(secureStorage: locator<SecureStorage>()),
   );
+  locator.registerLazySingleton(() => AgoraUtil());
   locator.registerLazySingleton(
     () => AuthInterceptor(
       tokenStorage: locator<TokenStorage>(),

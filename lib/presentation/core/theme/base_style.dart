@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hipstermeet/presentation/core/theme/app_color.dart';
 
 const String _fontFamily = 'Fraunces';
 
@@ -10,7 +11,7 @@ class BaseStyles {
     fontSize: 22,
     fontWeight: FontWeight.w500,
     height: 1.4,
-    color: Colors.black,
+    color: AppColor.black,
   );
 
   static TextStyle titleSmall = TextStyle(
@@ -18,7 +19,7 @@ class BaseStyles {
     fontSize: 18,
     fontWeight: FontWeight.w500,
     height: 1.4,
-    color: Colors.black,
+    color: AppColor.black,
   );
 
   static TextStyle bodyLarge = TextStyle(
@@ -26,7 +27,7 @@ class BaseStyles {
     fontSize: 17,
     fontWeight: FontWeight.w500,
     height: 1.4,
-    color: Colors.black,
+    color: AppColor.black,
   );
 
   static TextStyle bodyMedium = TextStyle(
@@ -34,7 +35,7 @@ class BaseStyles {
     fontSize: 16,
     fontWeight: FontWeight.w500,
     height: 1.4,
-    color: Colors.black,
+    color: AppColor.black,
   );
 
   static TextStyle bodySmall = TextStyle(
@@ -42,7 +43,7 @@ class BaseStyles {
     fontSize: 15,
     fontWeight: FontWeight.w400,
     height: 1.4,
-    color: Colors.black,
+    color: AppColor.black,
   );
 
   static TextStyle lebelLarge = TextStyle(
@@ -50,7 +51,7 @@ class BaseStyles {
     fontSize: 14,
     fontWeight: FontWeight.w500,
     height: 1.4,
-    color: Colors.black,
+    color: AppColor.black,
   );
 
   static TextStyle displayLarge = TextStyle(
@@ -58,6 +59,6 @@ class BaseStyles {
     fontSize: 32,
     fontWeight: FontWeight.w600,
     height: 1.4,
-    color: Colors.black,
+    color: AppColor.black,
   );
 }

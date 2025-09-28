@@ -56,8 +56,8 @@ class _SplashScreenState extends State<SplashScreen>
           listenWhen: (previous, current) => previous != current,
           listener: (context, state) {
             state.map(
-              initial: (_) => DialogUtil.showLoadingDialog(context),
-              loading: (_) => DialogUtil.showLoadingDialog(context),
+              initial: (_) {},
+              loading: (_) {},
               authenticated: (authState) {
                 final routes = <PageRouteInfo<dynamic>>[
                   const SplashRoute(),

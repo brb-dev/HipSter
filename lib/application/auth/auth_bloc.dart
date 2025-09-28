@@ -27,7 +27,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         add(const AuthEvent.authCheck());
         break;
       case _AuthCheck():
-        emit(const AuthState.loading());
+        //emit(const AuthState.loading());
         final result = await authRepository.tokenValid();
         await result.fold(
           (invalid) async => emit(const AuthState.unauthenticated()),

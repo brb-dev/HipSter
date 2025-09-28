@@ -10,6 +10,7 @@ import 'package:hipstermeet/locator.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router_observer.dart';
 import 'package:hipstermeet/presentation/core/theme/app_theme.dart';
+import 'package:hipstermeet/presentation/core/utils/agora/agora_util.dart';
 
 Future<void> initialSetup({required Flavor flavor}) async {
   setupLocator();
@@ -22,6 +23,7 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       await locator<TokenStorage>().init();
+      //await locator<AgoraUtil>().initAgora();
       runApp(App());
     },
     (error, stackTrace) {

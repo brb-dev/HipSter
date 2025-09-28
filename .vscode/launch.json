@@ -24,5 +24,33 @@
                 "prod"
             ],
         },
+        {
+            "name": "dev-ios",
+            "request": "launch",
+            "deviceId": "868DF4EA-E78B-4AED-B285-E89B6451B350",
+            "type": "dart",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+            ],
+        },
+        {
+            "name": "dev-android",
+            "request": "launch",
+            "deviceId": "emulator-5554",
+            "type": "dart",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev",
+            ],
+        },
+    ],
+    "compounds": [
+        {
+            "name": "dev-all-devices",
+            "configurations": ["dev-ios", "dev-android"]
+        }
     ]
 }
