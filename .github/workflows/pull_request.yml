@@ -1,0 +1,52 @@
+name: Flutter Analysis, Test, and Coverage
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  flutter:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Checkout Branch
+
+      - uses: subosito/flutter-action@v2
+        name: Install Flutter
+        with:
+          flutter-version: "3.35.4"
+          channel: 'stable'
+          cache: true
+
+      - name: Setup environment files
+        run: |
+          cp .env.example .env
+          cp .env.example .env.dev
+
+      - name: Clean Flutter project
+        run: flutter clean
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run Build Runner
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
+
+      - name: Analyze code
+        run: flutter analyze --fatal-infos --fatal-warnings
+
+      - name: Run tests with coverage
+        run: flutter test --coverage
+
+      - name: Setup LCOV
+        uses: hrishikesh-kadam/setup-lcov@v1
+
+      - name: Generate coverage report
+        run: |
+          genhtml coverage/lcov.info -o coverage/html
+
+      - name: View Report
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          lcov-file: ./coverage/lcov.info
+          github-token: ${{ secrets.CICD_ACTION }}

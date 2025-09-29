@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hipstermeet/application/auth/auth_bloc.dart';
 import 'package:hipstermeet/application/user/user_bloc.dart';
 import 'package:hipstermeet/domain/user/entities/user_entity.dart';
 import 'package:hipstermeet/infrastructure/user/repositories/user_repository.dart';

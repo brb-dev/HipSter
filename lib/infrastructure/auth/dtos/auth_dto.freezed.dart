@@ -20,7 +20,6 @@ AuthDto _$AuthDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AuthDto {
-// ignore: invalid_annotation_target
   @JsonKey(name: 'token', defaultValue: '')
   String get token => throw _privateConstructorUsedError;
 
@@ -103,7 +102,6 @@ class _$AuthDtoImpl extends _AuthDto {
   factory _$AuthDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthDtoImplFromJson(json);
 
-// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'token', defaultValue: '')
   final String token;
@@ -147,7 +145,7 @@ abstract class _AuthDto extends AuthDto {
 
   factory _AuthDto.fromJson(Map<String, dynamic> json) = _$AuthDtoImpl.fromJson;
 
-  @override // ignore: invalid_annotation_target
+  @override
   @JsonKey(name: 'token', defaultValue: '')
   String get token;
   @override

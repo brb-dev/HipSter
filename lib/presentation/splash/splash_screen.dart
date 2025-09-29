@@ -5,8 +5,6 @@ import 'package:hipstermeet/application/auth/auth_bloc.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.gr.dart';
 import 'package:hipstermeet/presentation/core/theme/app_color.dart';
 import 'package:hipstermeet/presentation/core/utils/asset/app_asset.dart';
-import 'package:hipstermeet/presentation/core/utils/extension_util.dart';
-import 'package:hipstermeet/presentation/core/widgets/dialog_util.dart';
 import 'package:hipstermeet/presentation/core/widgets/image/custom_image_view.dart';
 
 @RoutePage()
@@ -56,8 +54,8 @@ class _SplashScreenState extends State<SplashScreen>
           listenWhen: (previous, current) => previous != current,
           listener: (context, state) {
             state.map(
-              initial: (_) => DialogUtil.showLoadingDialog(context),
-              loading: (_) => DialogUtil.showLoadingDialog(context),
+              initial: (_) {},
+              loading: (_) {},
               authenticated: (authState) {
                 final routes = <PageRouteInfo<dynamic>>[
                   const SplashRoute(),

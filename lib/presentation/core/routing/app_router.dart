@@ -16,11 +16,12 @@ class AppRouter extends RootStackRouter {
       path: RouteName.main,
       page: MainNavigationRoute.page,
       children: [
-        AutoRoute(page: CallRoute.page, path: RouteName.call),
+        AutoRoute(page: MeetingRoute.page, path: RouteName.meeting),
         AutoRoute(page: UserRoute.page, path: RouteName.user),
         AutoRoute(page: ProfileRoute.page, path: RouteName.profile),
       ],
     ),
+    AutoRoute(path: RouteName.call, page: CallRoute.page),
     RedirectRoute(path: '*', redirectTo: RouteName.empty),
   ];
 }

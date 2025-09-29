@@ -22,6 +22,7 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       await locator<TokenStorage>().init();
+      //await locator<AgoraUtil>().initAgora();
       runApp(App());
     },
     (error, stackTrace) {

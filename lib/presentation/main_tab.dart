@@ -149,14 +149,14 @@ class _TopIndicatorBox extends BoxPainter {
 }
 
 List<RouteItem> _getTabs(BuildContext context) {
-  return [callTabRouteItem, userTabRouteItem, profileTabRouteItem];
+  return [meetingTabRouteItem, userTabRouteItem, profileTabRouteItem];
 }
 
-RouteItem callTabRouteItem = RouteItem(
-  route: const CallRoute(),
-  icon: Icon(Icons.video_call),
+RouteItem meetingTabRouteItem = RouteItem(
+  route: const MeetingRoute(),
+  icon: Icon(Icons.meeting_room),
   selectedIcon: Icon(Icons.video_call),
-  label: 'Call',
+  label: 'Meeting',
 );
 
 RouteItem userTabRouteItem = RouteItem(

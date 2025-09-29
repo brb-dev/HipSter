@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hipstermeet/domain/auth/repositories/i_auth_repository.dart';
@@ -27,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         add(const AuthEvent.authCheck());
         break;
       case _AuthCheck():
-        emit(const AuthState.loading());
+        //emit(const AuthState.loading());
         final result = await authRepository.tokenValid();
         await result.fold(
           (invalid) async => emit(const AuthState.unauthenticated()),

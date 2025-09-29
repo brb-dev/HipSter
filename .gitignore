@@ -46,3 +46,8 @@ app.*.map.json
 
 # Ignore FVM flutter_sdk
 .fvm/flutter_sdk
+
+# Envied
+.env
+.env.dev
+lib/env/env.g.dart
