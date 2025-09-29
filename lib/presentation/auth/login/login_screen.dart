@@ -14,7 +14,6 @@ import 'package:hipstermeet/presentation/core/utils/widget_keys.dart';
 import 'package:hipstermeet/presentation/core/widgets/button/custom_elevated_button.dart';
 import 'package:hipstermeet/presentation/core/widgets/common_widget.dart';
 import 'package:hipstermeet/presentation/core/widgets/forms/generic_form_field.dart';
-import 'package:hipstermeet/presentation/core/widgets/image/custom_image_view.dart';
 import 'package:hipstermeet/presentation/core/widgets/shimmer/loading_shimmer.dart';
 
 part 'widgets/login_mobile.dart';

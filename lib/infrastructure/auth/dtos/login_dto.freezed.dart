@@ -20,10 +20,8 @@ LoginDto _$LoginDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LoginDto {
-// ignore: invalid_annotation_target
   @JsonKey(name: 'email', defaultValue: '')
-  String get email =>
-      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
+  String get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'password', defaultValue: '')
   String get password => throw _privateConstructorUsedError;
 
@@ -123,11 +121,9 @@ class _$LoginDtoImpl extends _LoginDto {
   factory _$LoginDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$LoginDtoImplFromJson(json);
 
-// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'email', defaultValue: '')
   final String email;
-// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'password', defaultValue: '')
   final String password;
@@ -175,10 +171,10 @@ abstract class _LoginDto extends LoginDto {
   factory _LoginDto.fromJson(Map<String, dynamic> json) =
       _$LoginDtoImpl.fromJson;
 
-  @override // ignore: invalid_annotation_target
+  @override
   @JsonKey(name: 'email', defaultValue: '')
   String get email;
-  @override // ignore: invalid_annotation_target
+  @override
   @JsonKey(name: 'password', defaultValue: '')
   String get password;
   @override

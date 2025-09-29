@@ -10,7 +10,6 @@ import 'package:hipstermeet/locator.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router_observer.dart';
 import 'package:hipstermeet/presentation/core/theme/app_theme.dart';
-import 'package:hipstermeet/presentation/core/utils/agora/agora_util.dart';
 
 Future<void> initialSetup({required Flavor flavor}) async {
   setupLocator();

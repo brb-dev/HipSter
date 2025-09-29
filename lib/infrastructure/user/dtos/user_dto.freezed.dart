@@ -20,13 +20,10 @@ UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserDto {
-// ignore: invalid_annotation_target
   @JsonKey(name: 'first_name', defaultValue: '')
-  String get firstName =>
-      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
+  String get firstName => throw _privateConstructorUsedError;
   @JsonKey(name: 'last_name', defaultValue: '')
-  String get lastName =>
-      throw _privateConstructorUsedError; // ignore: invalid_annotation_target
+  String get lastName => throw _privateConstructorUsedError;
   @JsonKey(name: 'avatar', defaultValue: '')
   String get avatar => throw _privateConstructorUsedError;
 
@@ -137,15 +134,12 @@ class _$UserDtoImpl extends _UserDto {
   factory _$UserDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserDtoImplFromJson(json);
 
-// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'first_name', defaultValue: '')
   final String firstName;
-// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'last_name', defaultValue: '')
   final String lastName;
-// ignore: invalid_annotation_target
   @override
   @JsonKey(name: 'avatar', defaultValue: '')
   final String avatar;
@@ -197,13 +191,13 @@ abstract class _UserDto extends UserDto {
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$UserDtoImpl.fromJson;
 
-  @override // ignore: invalid_annotation_target
+  @override
   @JsonKey(name: 'first_name', defaultValue: '')
   String get firstName;
-  @override // ignore: invalid_annotation_target
+  @override
   @JsonKey(name: 'last_name', defaultValue: '')
   String get lastName;
-  @override // ignore: invalid_annotation_target
+  @override
   @JsonKey(name: 'avatar', defaultValue: '')
   String get avatar;
   @override

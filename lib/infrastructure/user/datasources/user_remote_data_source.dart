@@ -21,8 +21,6 @@ class UserRemoteDataSource {
         url: '${config.urlConstants}users?page=1&per_page=15',
       );
 
-      final data = (res.data as Map<String, dynamic>)['data'];
-
       return ((res.data as Map<String, dynamic>)['data'] as List<dynamic>)
           .map((e) => UserDto.fromJson(e).toDomain())
           .toList();

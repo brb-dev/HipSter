@@ -7,11 +7,10 @@ part 'auth_dto.freezed.dart';
 part 'auth_dto.g.dart';
 
 @freezed
-class AuthDto with _$AuthDto {
+abstract class AuthDto with _$AuthDto {
   const AuthDto._();
 
   const factory AuthDto({
-    // ignore: invalid_annotation_target
     @JsonKey(name: 'token', defaultValue: '') required String token,
   }) = _AuthDto;
 

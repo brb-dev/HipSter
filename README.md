@@ -28,12 +28,25 @@ Implement one-to-one video calling feature with Amazon Chime(preferred)/Agora/tw
 3. Open project with Vscode, check ".fvm/fvm_config.json" file, check the "flutterSdkVersion" inside and use `fvm use <flutterSdkVersion_you_saw>`
 4. Restart vscode
 
+### Agora Setup
+
+Goto, agora.io and create an account and then a test project in testing mode and get the App Id.
+Goto root folder of the project and execute below commands:
+`cp .env.example .env`
+`cp .env.example .env.dev`
+
+Then paste the App Id against AGORA_API_KEY
+Then execute this command : `fvm flutter packages pub run build_runner build --delete-conflicting-outputs`
+.env is for prod and .env.dev is for dev environment but for the sake of simplicity we will be using same App Id for both of the environment.
+
 ### Flavor
 
-| Flavor | Package name | App Name | Endpoint | 
-|--|--|--|--|
-| PROD | `com.brb.hipstermeet` | HipSter Meet | ReqRes API |
-| DEV | `com.brb.hipstermeet.dev` | HipSter Meet Dev | ReqRes API |
+| Flavor | Package name | App Name | Endpoint | RTC Provider |
+|--|--|--|--|--|
+| PROD | `com.brb.hipstermeet` | HipSter Meet | `https://reqres.in/` | Agora |
+| DEV | `com.brb.hipstermeet.dev` | HipSter Meet Dev | `https://reqres.in/` | Agora |
+
+The use of flavor is to demonstrate how real-world flutter project is structured, in vscode you can run as debug after selecting the launch configuration.
 
 
 ### Build app
@@ -57,8 +70,10 @@ Implement one-to-one video calling feature with Amazon Chime(preferred)/Agora/tw
 ### Test Coverage
 
 1. [Read this](https://codewithandrea.com/articles/flutter-test-coverage/)
-2. `brew install lcov`
+2. `brew install lcov`(for first time only)
 3. `fvm flutter test --coverage`
 4. `genhtml coverage/lcov.info -o coverage/html`
 5. `open coverage/html/index.html`
+
+Few test cases has been added for demoing purpose only
 

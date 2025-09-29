@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:hipstermeet/infrastructure/core/storage/secure_storage.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../domain/core/error/exception.dart';

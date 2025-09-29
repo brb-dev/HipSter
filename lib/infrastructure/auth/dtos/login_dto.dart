@@ -6,13 +6,11 @@ part 'login_dto.freezed.dart';
 part 'login_dto.g.dart';
 
 @freezed
-class LoginDto with _$LoginDto {
+abstract class LoginDto with _$LoginDto {
   const LoginDto._();
 
   const factory LoginDto({
-    // ignore: invalid_annotation_target
     @JsonKey(name: 'email', defaultValue: '') required String email,
-    // ignore: invalid_annotation_target
     @JsonKey(name: 'password', defaultValue: '') required String password,
   }) = _LoginDto;
 

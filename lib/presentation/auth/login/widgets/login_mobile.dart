@@ -31,7 +31,7 @@ class _LoginMobile extends StatelessWidget {
               child: ListView(
                 children: [
                   (MediaQuery.sizeOf(context).height * 0.025).hs,
-                  const Text('Log in'),
+                  const Text('Log in', key: WidgetKeys.loginTextKey),
                   (MediaQuery.sizeOf(context).height * 0.05).hs,
                   ...loginField(context: context).map(
                     (e) => GenericFormField<LoginFormBloc, LoginFormState>(
