@@ -18,11 +18,19 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Setup environment files
+        run: |
+          cp .env.example .env
+          cp .env.example .env.dev
+
       - name: Clean Flutter project
         run: flutter clean
 
       - name: Install dependencies
         run: flutter pub get
+
+      - name: Run Build Runner
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
       - name: Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings
@@ -41,4 +49,4 @@ jobs:
         uses: romeovs/lcov-reporter-action@v0.3.1
         with:
           lcov-file: ./coverage/lcov.info
-          github-token: ${{ secrets.ACTION_CICD }}
+          github-token: ${{ secrets.CICD_ACTION }}

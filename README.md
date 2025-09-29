@@ -48,6 +48,9 @@ Then execute this command : `fvm flutter packages pub run build_runner build --d
 
 The use of flavor is to demonstrate how real-world flutter project is structured, in vscode you can run as debug after selecting the launch configuration.
 
+### CICD
+
+Under `.github/workflows' a fine pull_request.yml has been added, this workflow will run on every PR on main branch, it will analyze code and run the test cases and show the coverage percentages.
 
 ### Build app
 
