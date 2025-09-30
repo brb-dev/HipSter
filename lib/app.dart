@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hipstermeet/application/auth/auth_bloc.dart';
-import 'package:hipstermeet/application/call/call_bloc.dart';
 import 'package:hipstermeet/config.dart';
 import 'package:hipstermeet/infrastructure/core/notification/notification_service.dart';
 import 'package:hipstermeet/infrastructure/core/storage/token_storage.dart';

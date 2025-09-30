@@ -46,6 +46,9 @@ Then paste the App Id against AGORA_API_KEY
 Then execute this command : `fvm flutter packages pub run build_runner build --delete-conflicting-outputs`
 .env is for prod and .env.dev is for dev environment but for the sake of simplicity we will be using same App Id for both of the environment.
 
+### Auto build json_serializable, freezed, auto_route_generator, hive_generator 
+```fvm flutter pub run build_runner build --delete-conflicting-outputs```
+
 ### Flavor
 
 | Flavor | Package name | App Name | Endpoint | RTC Provider |
@@ -66,10 +69,14 @@ Under `.github/workflows' a file pull_request.yml has been added, this workflow 
 - `fvm flutter build ipa --release --split-debug-info --obfuscate --flavor dev -t lib/main_dev.dart`
 - `fvm flutter build ipa --release --split-debug-info --obfuscate --flavor prod -t lib/main_prod.dart`
 
+- I used to deliver ipa files with my client's apple account, today I noticed that my own apple account has no ios device connected and I do not have any real IoS device, so was not able to create IoS build, please change the team and run the command, this should generate the IoS build.
+
 #### Android
 
 - `fvm flutter build apk --release --split-debug-info --obfuscate --flavor dev -t lib/main_dev.dart`
-- `fvm flutter build appbundle --release --split-debug-info --obfuscate --flavor prod -t lib/main_prod.dart`
+- `fvm flutter build apk --release --split-debug-info --obfuscate --flavor prod -t lib/main_prod.dart`
+
+** Note, in place of apk, you should use appbundle for google realease
 
 ## Before submit PR, please run
 
@@ -86,4 +93,13 @@ Under `.github/workflows' a file pull_request.yml has been added, this workflow 
 5. `open coverage/html/index.html`
 
 Few test cases has been added for demoing purpose only
+
+### How to run both iOS and Android simulator in a same time
+1. Command + P => Flutter: Select Device
+2. Open the iOS and Android simulator in sequence
+3. terminal run `fvm flutter devices`
+4. Copy the iOS and Android device ID from the list 
+5. Replace the `.vscode/launch.json` "dev-ios" and "dev-android" device ID. Save it
+6. Go to VScode left Tab number 4 Item : Run and Debug , dropdown pick "dev-all-devices", click run
+7. Do not commit this change on your branch 
 

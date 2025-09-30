@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:hipstermeet/infrastructure/core/notification/notification_service.dart';
-import 'package:hipstermeet/locator.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.gr.dart';
 import 'package:hipstermeet/presentation/core/theme/app_color.dart';
 import 'package:hipstermeet/presentation/core/widgets/button/custom_elevated_button.dart';

@@ -46,26 +46,11 @@
                 "dev",
             ],
         },
-        {
-            "name": "dev-android-part2",
-            "request": "launch",
-            "deviceId": "emulator-5556",
-            "type": "dart",
-            "program": "lib/main_dev.dart",
-            "args": [
-                "--flavor",
-                "dev",
-            ],
-        },
     ],
     "compounds": [
         {
             "name": "dev-all-devices",
             "configurations": ["dev-ios", "dev-android"]
-        },
-        {
-            "name": "dev-all-android-devices",
-            "configurations": ["dev-android-part2", "dev-android"]
         }
     ]
 }
