@@ -9,6 +9,7 @@ import 'package:hipstermeet/application/call/call_bloc.dart';
 import 'package:hipstermeet/config.dart';
 import 'package:hipstermeet/infrastructure/core/notification/notification_service.dart';
 import 'package:hipstermeet/infrastructure/core/storage/token_storage.dart';
+import 'package:hipstermeet/infrastructure/core/storage/user_storage.dart';
 import 'package:hipstermeet/locator.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router_observer.dart';
@@ -25,6 +26,7 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       await locator<TokenStorage>().init();
+      await locator<UserStorage>().init();
       await locator<NotificationService>().initNotifications();
 
       await SystemChrome.setPreferredOrientations([

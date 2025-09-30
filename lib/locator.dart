@@ -10,6 +10,7 @@ import 'package:hipstermeet/infrastructure/core/http/http_service.dart';
 import 'package:hipstermeet/infrastructure/core/notification/notification_service.dart';
 import 'package:hipstermeet/infrastructure/core/storage/secure_storage.dart';
 import 'package:hipstermeet/infrastructure/core/storage/token_storage.dart';
+import 'package:hipstermeet/infrastructure/core/storage/user_storage.dart';
 import 'package:hipstermeet/infrastructure/user/datasources/user_remote_data_source.dart';
 import 'package:hipstermeet/infrastructure/user/repositories/user_repository.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.dart';
@@ -28,6 +29,7 @@ void setupLocator() {
   locator.registerLazySingleton(
     () => TokenStorage(secureStorage: locator<SecureStorage>()),
   );
+  locator.registerLazySingleton(() => UserStorage());
   locator.registerLazySingleton(() => AgoraUtil());
   locator.registerLazySingleton(
     () => AuthInterceptor(
@@ -73,6 +75,7 @@ void setupLocator() {
     () => UserRepository(
       config: locator<Config>(),
       remoteDataSource: locator<UserRemoteDataSource>(),
+      userStorage: locator<UserStorage>(),
     ),
   );
 }

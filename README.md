@@ -23,8 +23,10 @@ Implement one-to-one video calling feature with Amazon Chime(preferred)/Agora/tw
 
 ### Assumption and Limitation
 1. Login : you need to use a valid email/password which is present in reqres.in, `eve.holt@reqres.in/cityslicka` is a valid login credential.
-2. Screen Sharing : Currently, the demo implements one-to-one video calling fully on mobile using Agora. The screen sharing feature works out-of-the-box on Web and Desktop platforms using the Agora SDK. On Android and iOS, screen sharing requires a native integration (using MediaProjection on Android and ReplayKit on iOS) because the Flutter SDK does not yet provide a direct API for mobile screen sharing. For this demo, I’ve added a placeholder for screen sharing on mobile, but the architecture is ready so that with minimal native code, full mobile screen sharing can be enabled. This approach ensures the app remains stable and fully functional on mobile while keeping the codebase future-proof for production-level screen sharing.
-3. Push Notification : A client side push notification has been added when the remote user joins.
+2. Meeting will be joined with a mock meeting id i.e, `meeting123`, there is no option for users to set custom meeting id.
+3. Screen Sharing : Currently, the demo implements one-to-one video calling fully on mobile using Agora. The screen sharing feature works out-of-the-box on Web and Desktop platforms using the Agora SDK. On Android and iOS, screen sharing requires a native integration (using MediaProjection on Android and ReplayKit on iOS) because the Flutter SDK does not yet provide a direct API for mobile screen sharing. For this demo, I’ve added a placeholder for screen sharing on mobile, but the architecture is ready so that with minimal native code, full mobile screen sharing can be enabled. This approach ensures the app remains stable and fully functional on mobile while keeping the codebase future-proof for production-level screen sharing.
+4. Push Notification : A client side push notification has been added when the remote user joins.
+5. I do not have real IoS device, and in IoS simulator, there is no camera and microphone, so I could not test it on IoS.
 
 ### Setup
 
@@ -55,7 +57,7 @@ The use of flavor is to demonstrate how real-world flutter project is structured
 
 ### CICD
 
-Under `.github/workflows' a fine pull_request.yml has been added, this workflow will run on every PR on main branch, it will analyze code and run the test cases and show the coverage percentages.
+Under `.github/workflows' a file pull_request.yml has been added, this workflow will run on every PR on main branch, it will analyze code and run the test cases and show the coverage percentages.We can build the app here too but I did not do it.
 
 ### Build app
 
