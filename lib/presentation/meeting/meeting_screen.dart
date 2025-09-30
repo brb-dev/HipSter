@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.gr.dart';
 import 'package:hipstermeet/presentation/core/theme/app_color.dart';
 import 'package:hipstermeet/presentation/core/widgets/button/custom_elevated_button.dart';
+import 'package:hipstermeet/presentation/core/widgets/dialog_util.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 @RoutePage()
@@ -37,8 +38,14 @@ class MeetingScreen extends StatelessWidget {
               );
               return;
             }
-            await Future.delayed(Duration(milliseconds: 200));
             if (context.mounted) {
+              DialogUtil.showLoadingDialog(context);
+            }
+
+            await Future.delayed(Duration(milliseconds: 200));
+
+            if (context.mounted) {
+              context.router.popForced();
               context.router.push(CallRoute(meetingId: 'meeting123'));
             }
           },

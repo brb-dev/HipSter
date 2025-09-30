@@ -2,10 +2,13 @@ import 'dart:async';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hipstermeet/application/auth/auth_bloc.dart';
 import 'package:hipstermeet/config.dart';
+import 'package:hipstermeet/infrastructure/core/notification/notification_service.dart';
 import 'package:hipstermeet/infrastructure/core/storage/token_storage.dart';
+import 'package:hipstermeet/infrastructure/core/storage/user_storage.dart';
 import 'package:hipstermeet/locator.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router_observer.dart';
@@ -22,7 +25,13 @@ void runAppWithCrashlyticsAndLocalization({required Flavor flavor}) {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
       await locator<TokenStorage>().init();
-      //await locator<AgoraUtil>().initAgora();
+      await locator<UserStorage>().init();
+      await locator<NotificationService>().initNotifications();
+
+      await SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+      ]);
       runApp(App());
     },
     (error, stackTrace) {
@@ -45,7 +54,7 @@ class App extends StatelessWidget {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: appThemeData[AppTheme.light],
-        darkTheme: appThemeData[AppTheme.dark],
+        darkTheme: appThemeData[AppTheme.light],
         themeMode: ThemeMode.system,
         routerDelegate: AutoRouterDelegate(
           router,

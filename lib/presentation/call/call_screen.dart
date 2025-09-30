@@ -3,10 +3,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hipstermeet/application/call/call_bloc.dart';
+import 'package:hipstermeet/infrastructure/core/notification/notification_service.dart';
 import 'package:hipstermeet/locator.dart';
 import 'package:hipstermeet/presentation/core/theme/app_color.dart';
 import 'package:hipstermeet/presentation/core/utils/agora/agora_util.dart';
 import 'package:hipstermeet/presentation/core/widgets/shimmer/loading_shimmer.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 part 'widgets/call_self.dart';
 part 'widgets/call_remote.dart';
@@ -29,9 +31,13 @@ class CallScreen extends StatelessWidget {
           if (!snapshot.hasData) return Center(child: LoadingShimmer.logo());
           final engine = snapshot.data!;
           return BlocProvider(
-            create: (_) => CallBloc(engine: engine)
-              ..add(CallEvent.initialized())
-              ..add(CallEvent.joinMeeting(meetingId: meetingId)),
+            create: (_) =>
+                CallBloc(
+                    engine: engine,
+                    notificationService: locator<NotificationService>(),
+                  )
+                  ..add(CallEvent.initialized())
+                  ..add(CallEvent.joinMeeting(meetingId: meetingId)),
             child: _PrivateCallSection(engine: engine, meetingId: meetingId),
           );
         },

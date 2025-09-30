@@ -21,10 +21,13 @@ UserDto _$UserDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserDto {
   @JsonKey(name: 'first_name', defaultValue: '')
+  @HiveField(0, defaultValue: '')
   String get firstName => throw _privateConstructorUsedError;
   @JsonKey(name: 'last_name', defaultValue: '')
+  @HiveField(1, defaultValue: '')
   String get lastName => throw _privateConstructorUsedError;
   @JsonKey(name: 'avatar', defaultValue: '')
+  @HiveField(2, defaultValue: '')
   String get avatar => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,9 +41,15 @@ abstract class $UserDtoCopyWith<$Res> {
       _$UserDtoCopyWithImpl<$Res, UserDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'first_name', defaultValue: '') String firstName,
-      @JsonKey(name: 'last_name', defaultValue: '') String lastName,
-      @JsonKey(name: 'avatar', defaultValue: '') String avatar});
+      {@JsonKey(name: 'first_name', defaultValue: '')
+      @HiveField(0, defaultValue: '')
+      String firstName,
+      @JsonKey(name: 'last_name', defaultValue: '')
+      @HiveField(1, defaultValue: '')
+      String lastName,
+      @JsonKey(name: 'avatar', defaultValue: '')
+      @HiveField(2, defaultValue: '')
+      String avatar});
 }
 
 /// @nodoc
@@ -85,9 +94,15 @@ abstract class _$$UserDtoImplCopyWith<$Res> implements $UserDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'first_name', defaultValue: '') String firstName,
-      @JsonKey(name: 'last_name', defaultValue: '') String lastName,
-      @JsonKey(name: 'avatar', defaultValue: '') String avatar});
+      {@JsonKey(name: 'first_name', defaultValue: '')
+      @HiveField(0, defaultValue: '')
+      String firstName,
+      @JsonKey(name: 'last_name', defaultValue: '')
+      @HiveField(1, defaultValue: '')
+      String lastName,
+      @JsonKey(name: 'avatar', defaultValue: '')
+      @HiveField(2, defaultValue: '')
+      String avatar});
 }
 
 /// @nodoc
@@ -124,11 +139,18 @@ class __$$UserDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 1, adapterName: 'UserDtoAdapter')
 class _$UserDtoImpl extends _UserDto {
   const _$UserDtoImpl(
-      {@JsonKey(name: 'first_name', defaultValue: '') required this.firstName,
-      @JsonKey(name: 'last_name', defaultValue: '') required this.lastName,
-      @JsonKey(name: 'avatar', defaultValue: '') required this.avatar})
+      {@JsonKey(name: 'first_name', defaultValue: '')
+      @HiveField(0, defaultValue: '')
+      required this.firstName,
+      @JsonKey(name: 'last_name', defaultValue: '')
+      @HiveField(1, defaultValue: '')
+      required this.lastName,
+      @JsonKey(name: 'avatar', defaultValue: '')
+      @HiveField(2, defaultValue: '')
+      required this.avatar})
       : super._();
 
   factory _$UserDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -136,12 +158,15 @@ class _$UserDtoImpl extends _UserDto {
 
   @override
   @JsonKey(name: 'first_name', defaultValue: '')
+  @HiveField(0, defaultValue: '')
   final String firstName;
   @override
   @JsonKey(name: 'last_name', defaultValue: '')
+  @HiveField(1, defaultValue: '')
   final String lastName;
   @override
   @JsonKey(name: 'avatar', defaultValue: '')
+  @HiveField(2, defaultValue: '')
   final String avatar;
 
   @override
@@ -182,10 +207,13 @@ class _$UserDtoImpl extends _UserDto {
 abstract class _UserDto extends UserDto {
   const factory _UserDto(
       {@JsonKey(name: 'first_name', defaultValue: '')
+      @HiveField(0, defaultValue: '')
       required final String firstName,
       @JsonKey(name: 'last_name', defaultValue: '')
+      @HiveField(1, defaultValue: '')
       required final String lastName,
       @JsonKey(name: 'avatar', defaultValue: '')
+      @HiveField(2, defaultValue: '')
       required final String avatar}) = _$UserDtoImpl;
   const _UserDto._() : super._();
 
@@ -193,12 +221,15 @@ abstract class _UserDto extends UserDto {
 
   @override
   @JsonKey(name: 'first_name', defaultValue: '')
+  @HiveField(0, defaultValue: '')
   String get firstName;
   @override
   @JsonKey(name: 'last_name', defaultValue: '')
+  @HiveField(1, defaultValue: '')
   String get lastName;
   @override
   @JsonKey(name: 'avatar', defaultValue: '')
+  @HiveField(2, defaultValue: '')
   String get avatar;
   @override
   @JsonKey(ignore: true)
