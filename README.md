@@ -21,6 +21,11 @@ Implement one-to-one video calling feature with Amazon Chime(preferred)/Agora/tw
 - [Coverage Gutters](https://marketplace.visualstudio.com/items?itemName=ryanluker.vscode-coverage-gutters)
 - [Flutter Coverage](https://marketplace.visualstudio.com/items?itemName=Flutterando.flutter-coverage)
 
+### Assumption and Limitation
+1. Login : you need to use a valid email/password which is present in reqres.in, `eve.holt@reqres.in/cityslicka` is a valid login credential.
+2. Screen Sharing : Currently, the demo implements one-to-one video calling fully on mobile using Agora. The screen sharing feature works out-of-the-box on Web and Desktop platforms using the Agora SDK. On Android and iOS, screen sharing requires a native integration (using MediaProjection on Android and ReplayKit on iOS) because the Flutter SDK does not yet provide a direct API for mobile screen sharing. For this demo, I’ve added a placeholder for screen sharing on mobile, but the architecture is ready so that with minimal native code, full mobile screen sharing can be enabled. This approach ensures the app remains stable and fully functional on mobile while keeping the codebase future-proof for production-level screen sharing.
+3. Push Notification : A client side push notification has been added when the remote user joins.
+
 ### Setup
 
 1. Install [FVM](https://fvm.app/docs/getting_started/installation)

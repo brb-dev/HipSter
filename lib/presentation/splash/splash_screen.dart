@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hipstermeet/application/auth/auth_bloc.dart';
 import 'package:hipstermeet/presentation/core/routing/app_router.gr.dart';
+import 'package:hipstermeet/presentation/core/routing/route_name.dart';
 import 'package:hipstermeet/presentation/core/theme/app_color.dart';
 import 'package:hipstermeet/presentation/core/utils/asset/app_asset.dart';
 import 'package:hipstermeet/presentation/core/widgets/image/custom_image_view.dart';
@@ -57,12 +58,15 @@ class _SplashScreenState extends State<SplashScreen>
               initial: (_) {},
               loading: (_) {},
               authenticated: (authState) {
-                final routes = <PageRouteInfo<dynamic>>[
-                  const SplashRoute(),
-                  const MainNavigationRoute(),
-                ];
+                final test = context.router.topRoute;
+                if (test.match != RouteName.call) {
+                  final routes = <PageRouteInfo<dynamic>>[
+                    const SplashRoute(),
+                    const MainNavigationRoute(),
+                  ];
 
-                context.router.replaceAll(routes);
+                  context.router.replaceAll(routes);
+                }
               },
               unauthenticated: (unauthState) {
                 final routes = <PageRouteInfo<dynamic>>[
