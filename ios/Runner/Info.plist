@@ -49,5 +49,12 @@
 	<string>We need camera access for video calls</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>We need microphone access for audio in calls</string>
+	<key>UIBackgroundModes</key>
+	<array>
+	    <string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	<key>NSUserNotificationUsageDescription</key>
+	<string>We use notifications to alert you about calls.</string>
 </dict>
 </plist>

@@ -61,8 +61,8 @@ Under `.github/workflows' a fine pull_request.yml has been added, this workflow 
 
 #### Android
 
-- `fvm flutter build appbundle --release --split-debug-info --obfuscate --flavor mock -t lib/main_dev.dart`
-- `fvm flutter build appbundle --release --split-debug-info --obfuscate --flavor dev -t lib/main_prod.dart`
+- `fvm flutter build apk --release --split-debug-info --obfuscate --flavor dev -t lib/main_dev.dart`
+- `fvm flutter build appbundle --release --split-debug-info --obfuscate --flavor prod -t lib/main_prod.dart`
 
 ## Before submit PR, please run
 

@@ -1,6 +1,8 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hipstermeet/infrastructure/core/notification/notification_service.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 part 'call_bloc.freezed.dart';
 part 'call_event.dart';
@@ -8,18 +10,21 @@ part 'call_state.dart';
 
 class CallBloc extends Bloc<CallEvent, CallState> {
   final RtcEngine engine;
+  final NotificationService notificationService;
 
   late final RtcEngineEventHandler myHandler;
 
-  CallBloc({required this.engine}) : super(CallState.initial()) {
+  CallBloc({required this.engine, required this.notificationService})
+    : super(CallState.initial()) {
     on<CallEvent>(_onEvent);
   }
 
   void setupHandler() {
     myHandler = RtcEngineEventHandler(
-      onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
+      onJoinChannelSuccess: (RtcConnection connection, int elapsed) async {
         add(CallEvent.setLocalUID(localUid: connection.localUid ?? 0));
         add(CallEvent.setCallStatus(status: CallStatus.inCall));
+        await WakelockPlus.enable();
       },
       onError: (err, msg) {
         add(
@@ -40,6 +45,7 @@ class CallBloc extends Bloc<CallEvent, CallState> {
       onUserJoined: (connection, remoteUid, elapsed) {
         add(CallEvent.setRemoteUid(remoteUid: remoteUid));
         add(const CallEvent.setCallStatus(status: CallStatus.inCall));
+        notificationService.showMockPushNotification(connection.localUid ?? 0);
       },
       onLeaveChannel: (connection, stats) {
         add(CallEvent.setRemoteUid(remoteUid: null));

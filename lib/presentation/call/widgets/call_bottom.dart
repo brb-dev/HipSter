@@ -46,9 +46,12 @@ class _CallBottom extends StatelessWidget {
               ),
               IconButton(
                 icon: const Icon(Icons.call_end, color: Colors.red),
-                onPressed: () {
+                onPressed: () async {
                   context.read<CallBloc>().add(CallEvent.leaveMeeting());
-                  context.router.popForced();
+                  await WakelockPlus.disable();
+                  if (context.mounted) {
+                    context.router.popForced();
+                  }
                 },
               ),
             ],
