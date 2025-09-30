@@ -27,6 +27,7 @@ Implement one-to-one video calling feature with Amazon Chime(preferred)/Agora/tw
 3. Screen Sharing : Currently, the demo implements one-to-one video calling fully on mobile using Agora. The screen sharing feature works out-of-the-box on Web and Desktop platforms using the Agora SDK. On Android and iOS, screen sharing requires a native integration (using MediaProjection on Android and ReplayKit on iOS) because the Flutter SDK does not yet provide a direct API for mobile screen sharing. For this demo, I’ve added a placeholder for screen sharing on mobile, but the architecture is ready so that with minimal native code, full mobile screen sharing can be enabled. This approach ensures the app remains stable and fully functional on mobile while keeping the codebase future-proof for production-level screen sharing.
 4. Push Notification : A client side push notification has been added when the remote user joins.
 5. I do not have real IoS device, and in IoS simulator, there is no camera and microphone, so I could not test it on IoS.
+6. Please don't use the apk which I shared as the apk consist of the agora app id which is supposed to expire on 30th Sept 2025, if the apk does not work please build a new one with new app id
 
 ### Setup
 
@@ -39,11 +40,12 @@ Implement one-to-one video calling feature with Amazon Chime(preferred)/Agora/tw
 
 Goto, agora.io and create an account and then a test project in testing mode and get the App Id.
 Goto root folder of the project and execute below commands:
-`cp .env.example .env`
-`cp .env.example .env.dev`
+```cp .env.example .env```
+```cp .env.example .env.dev```
 
 Then paste the App Id against AGORA_API_KEY
-Then execute this command : `fvm flutter packages pub run build_runner build --delete-conflicting-outputs`
+Then execute this command : ```fvm flutter packages pub run build_runner build --delete-conflicting-outputs```
+
 .env is for prod and .env.dev is for dev environment but for the sake of simplicity we will be using same App Id for both of the environment.
 
 ### Auto build json_serializable, freezed, auto_route_generator, hive_generator 
